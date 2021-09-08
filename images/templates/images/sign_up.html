@@ -4,5 +4,27 @@
 
 {% block main %}
     <h1>Sign up</h1>
+    <form action="" method="POST" id="sign-up-form">
+        {% csrf_token %}
+        {{form.first_name.label}}
+        {{form.first_name}} <br>
+
+        {{form.last_name.label}}
+        {{form.last_name}} <br>
+
+        {{form.username.label}}
+        {{form.username}} <br>
+
+        {{form.email.label}}
+        {{form.email}} <br>
+
+        {{form.password1.label}}
+        {{form.password1}}
+        
+        {{form.password2.label}}
+        {{form.password2}}
+
+        <input type="submit" value="Sign up" class="btn btn-outline-primary">
+    </form>
     
 {% endblock %}
