@@ -19,3 +19,8 @@ class SignUpForm(UserCreationForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }
+
+
+class SignInForm(AuthenticationForm):
+    username = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(max_length=255, widget=forms.PasswordInput(attrs={'class': 'form-control'}))

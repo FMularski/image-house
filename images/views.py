@@ -7,19 +7,16 @@ from . import forms
 
 
 def sign_in(request):
+    form = forms.SignInForm()
+
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user:
+        form = forms.SignInForm(data=request.POST)
+        if form.is_valid():
+            user = form.user_cache
             login(request, user)
             return redirect(reverse('home', ))
-        
-        messages.error(request, 'Invalid credentials.')
 
-    context = {}
+    context = {'form': form}
     return render(request, 'images/sign_in.html', context)
 
 
@@ -40,3 +37,8 @@ def sign_up(request):
 @login_required(login_url='sign_in')
 def home(request):
     return JsonResponse(data={'status': 200})
+
+
+def sign_out(request):
+    logout(request)
+    return redirect(reverse('sign_in', ))
