@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.flex-evenly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hover-scale {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.hover-scale:hover, .hover-scale:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+div#messages, div#form-errors {
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  width: 25rem;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-animation: flash-msg-animation .5s ease;
+          animation: flash-msg-animation .5s ease;
+}
+
+div#messages div.flash-msg, div#form-errors div.flash-msg {
+  border-radius: 1rem;
+  padding: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+
+div#messages div.flash-msg.error-msg, div#form-errors div.flash-msg.error-msg {
+  background: rgba(255, 0, 0, 0.582);
+  -webkit-box-shadow: rgba(167, 1, 1, 0.582) 0.5rem 0.5rem;
+          box-shadow: rgba(167, 1, 1, 0.582) 0.5rem 0.5rem;
+}
+
+div#messages div.flash-msg.success-msg, div#form-errors div.flash-msg.success-msg {
+  background: rgba(0, 255, 0, 0.582);
+  -webkit-box-shadow: rgba(0, 150, 0, 0.582) 0.5rem 0.5rem;
+          box-shadow: rgba(0, 150, 0, 0.582) 0.5rem 0.5rem;
+}
+
+@-webkit-keyframes flash-msg-animation {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 3rem;
+  }
+}
+
+@keyframes flash-msg-animation {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 3rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

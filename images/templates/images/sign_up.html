@@ -1,22 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static '/images/css/sign_up.css' %}">
+{% endblock %}
 
 {% block title %} Image House | Sign Up {% endblock %}
 
+{% block header %}
+    <h1>IMAGE H <i class="fas fa-home"></i> U S E </h1> 
+{% endblock %}
+
 {% block main %}
-    <h1>Sign up</h1>
+
     <form action="" method="POST" id="sign-up-form">
+        <h2>Sign up <i class="fas fa-user-plus"></i></h1>
         {% csrf_token %}
         {{form.first_name.label}}
-        {{form.first_name}} <br>
+        {{form.first_name}}
 
         {{form.last_name.label}}
-        {{form.last_name}} <br>
+        {{form.last_name}}
 
         {{form.username.label}}
-        {{form.username}} <br>
+        {{form.username}}
 
         {{form.email.label}}
-        {{form.email}} <br>
+        {{form.email}}
 
         {{form.password1.label}}
         {{form.password1}}
@@ -24,7 +34,12 @@
         {{form.password2.label}}
         {{form.password2}}
 
-        <input type="submit" value="Sign up" class="btn btn-outline-primary">
+        <input type="submit" value="Sign up" class="btn btn-outline-success">
+        <p class="my-3 flex-evenly">
+            <a href="{% url 'sign_in' %}" class="btn btn-outline-light hover-scale">Already have an account? <i class="fas fa-sign-in-alt"></i></a>
+        </p>
     </form>
+
+    <img src="{% static '/images/img/sign-up-img.svg' %}" alt="">
     
 {% endblock %}

@@ -16,6 +16,8 @@ def sign_in(request):
             login(request, user)
             return redirect(reverse('home', ))
 
+        messages.error(request, 'Invalid credentials.')
+
     context = {'form': form}
     return render(request, 'images/sign_in.html', context)
 

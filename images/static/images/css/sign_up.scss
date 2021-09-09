@@ -1,0 +1,56 @@
+$bg-color1: rgb(81, 245, 81);
+$bg-color2: rgb(196, 255, 196);
+
+body {
+    background: linear-gradient(45deg, $bg-color1,  $bg-color2, $bg-color1,  $bg-color2);
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+    color: white;
+}
+
+h1 {
+    padding: 2rem;
+    span {
+        border-bottom: 3px solid white;
+    }
+}
+
+form {
+    width: 30rem;
+    margin: 2rem;
+
+    input{
+        margin: 0;
+    }
+
+    input[type='submit'] {
+        width: 20rem;
+        display: block;
+        margin: 2rem auto auto auto;
+    }
+
+    p {
+        a {
+            width: 60%;
+        }
+    }
+}
+
+img {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

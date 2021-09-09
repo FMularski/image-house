@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hover-scale {
+    transition: all 0.3s ease;
+    &:hover, &:focus {
+        transform: scale(1.1);
+    }
+}
+
+div#messages, div#form-errors {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    width: 25rem;
+    z-index: 1000;
+
+    transition: all 0.3s ease;
+    animation: flash-msg-animation .5s ease;
+
+    div.flash-msg {
+        border-radius: 1rem;
+        padding: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.2rem;
+
+        &.error-msg {
+            background: rgba(255, 0, 0, 0.582);
+            box-shadow: rgba(167, 1, 1, 0.582) .5rem .5rem;
+        }
+
+        &.success-msg {
+            background: rgba(0, 255, 0, 0.582);
+            box-shadow: rgba(0, 150, 0, 0.582) .5rem .5rem;
+        }
+    }
+}
+
+@keyframes flash-msg-animation {
+    from {
+        top: -100%;
+    } to {
+        top: 3rem;
+    }
+}
