@@ -48,6 +48,14 @@ div#messages, div#form-errors {
     }
 }
 
+a#return-btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    font-size: 3rem;
+    color: white;
+}
+
 @keyframes flash-msg-animation {
     from {
         top: -100%;

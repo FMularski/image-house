@@ -60,6 +60,14 @@ div#messages div.flash-msg.success-msg, div#form-errors div.flash-msg.success-ms
           box-shadow: rgba(0, 150, 0, 0.582) 0.5rem 0.5rem;
 }
 
+a#return-btn {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  font-size: 3rem;
+  color: white;
+}
+
 @-webkit-keyframes flash-msg-animation {
   from {
     top: -100%;
