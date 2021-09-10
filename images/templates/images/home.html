@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static '/images/css/home.css' %}">
+{% endblock %}
+
+{% block title %} Image House | Home {% endblock %}
+
+{% block main %}
+    <main>
+        {% include 'nav.html' %}
+        <div id="images">
+
+        </div>
+    </main>
+{% endblock %}

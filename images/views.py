@@ -38,7 +38,8 @@ def sign_up(request):
 
 @login_required(login_url='sign_in')
 def home(request):
-    return JsonResponse(data={'status': 200})
+    context = {}
+    return render(request, 'images/home.html', context)
 
 
 def sign_out(request):

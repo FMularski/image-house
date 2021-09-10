@@ -1,0 +1,126 @@
+<style>
+    nav {
+        width: 25rem;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-bottom-right-radius: 3rem;
+    }
+
+    nav div#links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    nav div#links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    nav div#links a:last-child {
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+    nav div#links a:hover {
+        color: #FF9D2F;
+    }
+
+    nav div#links a:last-child:hover {
+        color: rgb(255, 79, 79);
+    }
+
+    input[type='checkbox']:hover {
+        cursor: pointer;
+    }
+
+</style>
+
+
+<nav>
+    <h3>Welcome <b>{{user}}</b></h3>
+    <div id="links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="">My images</a>
+        <a href="">Add image</a>
+        <a href="{% url 'sign_out' %}">Sign Out <i class="fas fa-sign-out-alt"></i></a>
+    </div>
+    <hr>
+    <h4>Filter</h4>
+    <select name="" id="" class="form-control hover-scale">
+        <option value="">Select category</option>
+        <option value="">category 1</option>
+        <option value="">category 2</option>
+        <option value="">category 3</option>
+    </select>
+
+    <hr>
+
+    <h4>Sort</h4>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-date-asc">
+        <label class="form-check-label">date <i class="fas fa-arrow-up"></i></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-date-des">
+        <label class="form-check-label">date <i class="fas fa-arrow-down"></i></label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-views-asc">
+        <label class="form-check-label">views <i class="fas fa-arrow-up"></i></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-views-des">
+        <label class="form-check-label">views <i class="fas fa-arrow-down"></i></label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-votes-asc">
+        <label class="form-check-label">votes <i class="fas fa-arrow-up"></i></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-votes-des">
+        <label class="form-check-label">votes <i class="fas fa-arrow-down"></i></label>
+    </div>
+
+</nav>
+
+<script>
+    (function(){
+        const sortDateAscCb = document.querySelector('#sort-date-asc');
+        const sortDateDesCb = document.querySelector('#sort-date-des');
+
+        const sortViewsAscCb = document.querySelector('#sort-views-asc');        
+        const sortViewsDesCb = document.querySelector('#sort-views-des');        
+        
+        const sortVotesAscCb = document.querySelector('#sort-votes-asc');        
+        const sortVotesDesCb = document.querySelector('#sort-votes-des');      
+        
+        sortDateAscCb.oppositeCb = sortDateDesCb;
+        sortDateDesCb.oppositeCb = sortDateAscCb;
+        
+        sortViewsAscCb.oppositeCb = sortViewsDesCb;
+        sortViewsDesCb.oppositeCb = sortViewsAscCb;
+        
+        sortVotesAscCb.oppositeCb = sortVotesDesCb;
+        sortVotesDesCb.oppositeCb = sortVotesAscCb;
+
+
+        const checkboxes = [
+            sortDateAscCb, sortDateDesCb, 
+            sortViewsAscCb, sortViewsDesCb, 
+            sortVotesAscCb, sortVotesDesCb
+        ]
+        
+        checkboxes.forEach(function(cb) {
+            cb.addEventListener('click', function() {
+                cb.oppositeCb.checked = false;
+            })
+        })
+
+    })();
+</script>

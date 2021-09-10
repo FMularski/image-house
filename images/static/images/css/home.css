@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(45deg, #ffb259, #ffd9b5, #ffb259, #ffd9b5);
+  -webkit-animation: gradient 10s ease infinite;
+          animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+  color: white;
+  height: 100vh;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*# sourceMappingURL=home.css.map */

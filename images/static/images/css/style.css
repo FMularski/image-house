@@ -27,6 +27,7 @@
 .hover-scale:hover, .hover-scale:focus {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  cursor: pointer;
 }
 
 div#messages, div#form-errors {
