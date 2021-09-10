@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
 from django.http import JsonResponse
-from . import forms
+from . import forms, models
 
 
 def sign_in(request):
@@ -38,7 +38,9 @@ def sign_up(request):
 
 @login_required(login_url='sign_in')
 def home(request):
-    context = {}
+    images = models.Image.objects.select_related('user', 'category').all()
+    
+    context = {'images': images}
     return render(request, 'images/home.html', context)
 
 

@@ -71,57 +71,27 @@
             <hr>
 
             <div id="regular-images">
-                <a href="">
-                    <div class="image" id="most-viewed">
-                        <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" alt="">
-                        <div class="stats">
-                            <div class="info">
-                                <p>username | 12-12-2012</p>
-                                <p>title | category</p>
-                                <p>views: 123</p>
-                            </div>
-                            <div class="voting">
-                                <i class="fas fa-arrow-up upvote-btn hover-scale"></i>
-                                <span> 0 </span>
-                                <i class="fas fa-arrow-down downvote-btn hover-scale"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="image" id="most-viewed">
-                        <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" alt="">
-                        <div class="stats">
-                            <div class="info">
-                                <p>username | 12-12-2012</p>
-                                <p>title | category</p>
-                                <p>views: 123</p>
-                            </div>
-                            <div class="voting">
-                                <i class="fas fa-arrow-up upvote-btn hover-scale"></i>
-                                <span> 0 </span>
-                                <i class="fas fa-arrow-down downvote-btn hover-scale"></i>
+
+                {% for image in images %}
+                    <a href="">
+                        <div class="image" id="most-viewed">
+                            <img src="{{image.img.url}}" alt="">
+                            <div class="stats">
+                                <div class="info">
+                                    <p>{{image.user.username}} | {{image.created_at}}</p>
+                                    <p>{{image.title}} | {{image.category}}</p>
+                                    <p>views: {{image.views}}</p>
+                                </div>
+                                <div class="voting">
+                                    <i class="fas fa-arrow-up upvote-btn hover-scale"></i>
+                                    <span> {{image.votes}} </span>
+                                    <i class="fas fa-arrow-down downvote-btn hover-scale"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="image" id="most-viewed">
-                        <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" alt="">
-                        <div class="stats">
-                            <div class="info">
-                                <p>username | 12-12-2012</p>
-                                <p>title | category</p>
-                                <p>views: 123</p>
-                            </div>
-                            <div class="voting">
-                                <i class="fas fa-arrow-up upvote-btn hover-scale"></i>
-                                <span> 0 </span>
-                                <i class="fas fa-arrow-down downvote-btn hover-scale"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                {% endfor %}
+                
                 
             </div>
             
