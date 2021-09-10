@@ -1,5 +1,7 @@
-$bg-color1: rgb(255, 178, 89);
-$bg-color2: rgb(255, 217, 181);
+// $bg-color1: rgb(255, 178, 89);
+// $bg-color2: rgb(255, 217, 181);
+$bg-color1: rgb(130, 163, 255);
+$bg-color2: rgb(235, 235, 235);
 
 body {
     background: linear-gradient(45deg, $bg-color1,  $bg-color2, $bg-color1,  $bg-color2);
@@ -8,6 +10,101 @@ body {
     color: white;
     height: 100vh;
 }
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+div#images {
+    a {
+        text-decoration: none;
+    }
+
+    hr { 
+        color: rgb(10, 9, 78);
+        width: 95%;
+        margin: auto;
+        height: 5px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p.special-title {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+div#special-images, div#regular-images {
+    width: 80vw;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    padding: 2rem;
+}
+
+div.image {
+    box-shadow: rgba(0, 0, 0, .3) 1rem 1rem;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    img {
+        width: 25rem;
+        height: 20rem;
+    }
+
+    div.stats {
+        padding: 1rem;
+        background: rgb(255, 255, 255);
+        width: 100%;
+        color: rgb(17, 12, 44);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            margin: 0;
+        }
+
+        i, span {
+            font-size: 2rem;
+        }
+
+        i.upvote-btn {
+            color: rgb(123, 255, 0);
+        }
+
+        i.downvote-btn {
+            color: red;
+        }
+    }
+}
+
+div#page-controls {
+    margin: 4rem;
+
+    font-size: 2rem;
+
+    i {
+        color:rgb(10, 9, 78);
+    }
+}
+
 
 @keyframes gradient {
 	0% {

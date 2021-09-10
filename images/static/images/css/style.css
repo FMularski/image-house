@@ -28,6 +28,7 @@
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   cursor: pointer;
+  z-index: 1;
 }
 
 div#messages, div#form-errors {
