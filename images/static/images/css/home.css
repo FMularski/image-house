@@ -86,11 +86,13 @@ div.image {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 1rem;
+  background: white;
 }
 
 div.image img {
   width: 25rem;
   height: 20rem;
+  padding: 1rem;
 }
 
 div.image div.stats {

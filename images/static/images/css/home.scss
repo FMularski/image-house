@@ -62,10 +62,13 @@ div.image {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    background: white;
 
     img {
         width: 25rem;
         height: 20rem;
+
+        padding: 1rem;
     }
 
     div.stats {
