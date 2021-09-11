@@ -39,8 +39,12 @@ def sign_up(request):
 @login_required(login_url='sign_in')
 def home(request):
     images = models.Image.objects.select_related('user', 'category').all()
-    
-    context = {'images': images}
+    most_viewed = images.order_by('views').first()
+    most_voted = images.order_by('votes').first()
+    most_recent = images.order_by('-created_at').first()
+
+
+    context = {'images': images, 'most_viewed': most_viewed, 'most_voted': most_voted, 'most_recent': most_recent}
     return render(request, 'images/home.html', context)
 
 
