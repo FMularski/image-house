@@ -23,7 +23,7 @@
                                     <p>{{image.title}} | {{image.category}}</p>
                                     <p>views: {{image.views}}</p>
                                 </div>
-                                <button class="btn btn-danger delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-danger delete-btn" del-pk="{{image.pk}}"><i class="fas fa-trash-alt"></i></button>
                             </div>
                         </div>
                     </a>
@@ -38,4 +38,17 @@
             
         </div>
     </main>
+
+    <div id="dark" class=""></div>
+    <div id="delete-panel">
+        <h3>Delete image</h3>
+        <p>Are you sure you want to delete this image?</p>
+        <button class="btn btn-success" id="yes-del-btn">Yes</button>
+        <button class="btn btn-danger" id="no-del-btn">No</button>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static '/images/js/delete_img.js' %}"></script>
 {% endblock %}

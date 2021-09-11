@@ -14,4 +14,5 @@ urlpatterns = [
     
     path('', views.home, name='home'),
     path('my-images/', views.my_images, name='my_images'),
+    path('delete/<int:pk>/', views.delete_img, name='delete_img'),
 ]

@@ -132,6 +132,39 @@ div#page-controls i {
   color: #0a094e;
 }
 
+div#delete-panel {
+  width: 30rem;
+  background: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
+          box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+div#delete-panel h3 {
+  padding: 1rem;
+  background: #0a094e;
+}
+
+div#delete-panel p {
+  color: #0a094e;
+  padding: 1rem;
+}
+
+div#delete-panel button {
+  margin: 0 0 2rem 1rem;
+}
+
+div#delete-panel.active {
+  top: 10%;
+}
+
 @-webkit-keyframes gradient {
   0% {
     background-position: 0% 50%;

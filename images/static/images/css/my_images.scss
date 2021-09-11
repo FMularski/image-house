@@ -106,6 +106,37 @@ div#page-controls {
     }
 }
 
+div#delete-panel {
+
+    width: 30rem;
+    background: white;
+    box-shadow: rgba(0, 0, 0, .3) 1rem 1rem;
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    z-index: 2;
+
+    h3 {
+        padding: 1rem;
+        background: rgb(10, 9, 78);
+    }
+
+    p {
+        color:rgb(10, 9, 78);
+        padding: 1rem;
+    }
+
+    button {
+        margin: 0 0 2rem 1rem;
+    }
+
+    &.active {
+        top: 10%;
+    }
+
+}
 
 @keyframes gradient {
 	0% {
