@@ -44,6 +44,14 @@ def home(request):
     return render(request, 'images/home.html', context)
 
 
+@login_required(login_url='sign_in')
+def my_images(request):
+    my_images = models.Image.objects.select_related('user', 'category').filter(user=request.user)
+    
+    context = {'my_images': my_images}
+    return render(request, 'images/my_images.html', context)
+
+
 def sign_out(request):
     logout(request)
     return redirect(reverse('sign_in', ))

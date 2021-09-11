@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static '/images/css/my_images.css' %}">
+{% endblock %}
+
+{% block title %} Image House | My images {% endblock %}
+
+{% block main %}
+    <main>
+        {% include 'nav.html' %}
+        <div id="images">
+            <div id="regular-images">
+
+                {% for image in my_images %}
+                    <a href="">
+                        <div class="image" id="most-viewed">
+                            <img src="{{image.img.url}}" alt="">
+                            <div class="stats">
+                                <div class="info">
+                                    <p>{{image.created_at}}</p>
+                                    <p>{{image.title}} | {{image.category}}</p>
+                                    <p>views: {{image.views}}</p>
+                                </div>
+                                <button class="btn btn-danger delete-btn"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <h4>You have not uploaded any images yet.</h4>
+                {% endfor %}
+            </div>
+            
+            <div id="page-controls">
+                <a href=""><i class="fas fa-chevron-left"></i></a> 1 <a href=""><i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+        </div>
+    </main>
+{% endblock %}

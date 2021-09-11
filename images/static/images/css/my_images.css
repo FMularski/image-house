@@ -119,16 +119,8 @@ div.image div.stats i, div.image div.stats span {
   font-size: 2rem;
 }
 
-div.image div.stats i.upvote-btn, div.image div.stats i.downvote-btn {
-  color: #dfdfdf;
-}
-
-div.image div.stats i.upvote-btn:hover, div.image div.stats i.downvote-btn:hover {
-  color: #b1b1b1;
-}
-
-div.image div.stats i.upvote-btn.voted, div.image div.stats i.downvote-btn.voted {
-  color: #0a094e;
+div.image button.delete-btn i {
+  font-size: 1rem;
 }
 
 div#page-controls {
@@ -163,4 +155,4 @@ div#page-controls i {
     background-position: 0% 50%;
   }
 }
-/*# sourceMappingURL=home.css.map */
+/*# sourceMappingURL=my_images.css.map */

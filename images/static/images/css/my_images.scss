@@ -87,17 +87,11 @@ div.image {
         i, span {
             font-size: 2rem;
         }
+    }
 
-        i.upvote-btn, i.downvote-btn {
-            color: rgb(223, 223, 223);
-            
-            &:hover {
-                color: rgb(177, 177, 177);
-            }
-
-            &.voted { 
-                color:rgb(10, 9, 78);
-            }
+    button.delete-btn {
+        i {
+            font-size: 1rem;
         }
     }
 }
