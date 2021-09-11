@@ -39,12 +39,18 @@ def sign_up(request):
 @login_required(login_url='sign_in')
 def home(request):
     images = models.Image.objects.select_related('user', 'category').all()
-    most_viewed = images.order_by('views').first()
-    most_voted = images.order_by('votes').first()
-    most_recent = images.order_by('-created_at').first()
+    most_viewed = images.order_by('-views').first()
+    most_voted = images.order_by('-votes').first()
+    most_recent = images.order_by('created_at').first()
 
+    if request.GET.get('category'):
+        images = images.filter(category__name=request.GET.get('category'))
 
-    context = {'images': images, 'most_viewed': most_viewed, 'most_voted': most_voted, 'most_recent': most_recent}
+    categories = models.Category.objects.all()
+
+    context = {'images': images, 'most_viewed': most_viewed, 
+                'most_voted': most_voted, 'most_recent': most_recent, 
+                'categories': categories}
     return render(request, 'images/home.html', context)
 
 

@@ -50,11 +50,11 @@
     </div>
     <hr>
     <h4>Filter</h4>
-    <select name="" id="" class="form-control hover-scale">
+    <select name="" id="filter" class="form-control">
         <option value="">Select category</option>
-        <option value="">category 1</option>
-        <option value="">category 2</option>
-        <option value="">category 3</option>
+        {% for category in categories %}
+            <option value="{{category}}">{{category}}</option>
+        {% endfor %}
     </select>
 
     <hr>
@@ -122,5 +122,24 @@
             })
         })
 
+    })();
+</script>
+
+<script >
+    (function(){
+        const filter = document.querySelector('#filter');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedCategory = urlParams.get('category');
+        
+        if (selectedCategory) filter.value = selectedCategory;
+
+        filter.addEventListener('change', function(event) {
+            const category = event.target.value;
+
+            urlParams.set('category', category);
+            window.history.replaceState({}, '', `${location.pathname}?${urlParams.toString()}`);
+            location.reload();
+        })
     })();
 </script>
