@@ -1,0 +1,47 @@
+<style>
+    nav {
+        width: 20vw;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-bottom-right-radius: 3rem;
+    }
+
+    nav div#links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    nav div#links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    nav div#links a:last-child {
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+    nav div#links a:hover {
+        color: #140d50;
+    }
+
+    nav div#links a:last-child:hover {
+        color: rgb(255, 79, 79);
+    }
+
+</style>
+
+
+<nav>
+    <h3>Welcome <b>{{user}}</b></h3>
+    <div id="links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'my_images' %}">My images</a>
+        <a href="{% url 'add_image' %}">Add image</a>
+        <a href="{% url 'sign_out' %}">Sign Out <i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</nav>
