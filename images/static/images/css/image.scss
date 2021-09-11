@@ -56,6 +56,8 @@ div#special-images, div#regular-images {
 div.image {
     box-shadow: rgba(0, 0, 0, .3) 1rem 1rem;
     overflow: hidden;
+    margin: 2rem auto auto auto;
+
 
     display: flex;
     flex-direction: column;
@@ -65,8 +67,8 @@ div.image {
     background: white;
 
     img {
-        width: 25rem;
-        height: 20rem;
+        max-width: 100%;
+        max-height: 100%;
 
         padding: 1rem;
     }
@@ -96,46 +98,16 @@ div.image {
     }
 }
 
-div#page-controls {
-    margin: 4rem;
+i.upvote-btn, i.downvote-btn {
+    color: rgb(223, 223, 223);
+    
+    &:hover {
+        color: rgb(177, 177, 177);
+    }
 
-    font-size: 2rem;
-
-    i {
+    &.voted { 
         color:rgb(10, 9, 78);
     }
-}
-
-div#delete-panel {
-
-    width: 30rem;
-    background: white;
-    box-shadow: rgba(0, 0, 0, .3) 1rem 1rem;
-    position: fixed;
-    top: -100%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
-    z-index: 2;
-
-    h3 {
-        padding: 1rem;
-        background: $bg-color1;
-    }
-
-    p {
-        color:rgb(10, 9, 78);
-        padding: 1rem;
-    }
-
-    button {
-        margin: 0 0 2rem 1rem;
-    }
-
-    &.active {
-        top: 10%;
-    }
-
 }
 
 @keyframes gradient {

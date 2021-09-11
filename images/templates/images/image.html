@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static '/images/css/image.css' %}">
+{% endblock %}
+
+{% block title %} Image House | My images {% endblock %}
+
+{% block main %}
+    <main>
+        {% include 'nav.html' %}
+        
+        <div class="image" id="most-viewed">
+            <img src="{{image.img.url}}" alt="">
+            <div class="stats">
+                <div class="info">
+                    <p>{{image.user.username}} | {{image.created_at}}</p>
+                    <p>{{image.title}} | {{image.category}}</p>
+                    <p>views: {{image.views}}</p>
+                </div>
+                <div class="voting">
+                    <i class="fas fa-arrow-up upvote-btn hover-scale"></i>
+                    <span> 0 </span>
+                    <i class="fas fa-arrow-down downvote-btn hover-scale"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static '/images/js/delete_img.js' %}"></script>
+{% endblock %}

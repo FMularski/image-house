@@ -60,6 +60,16 @@ def delete_img(request, pk):
     return redirect(reverse('my_images', ))
 
 
+@login_required(login_url='sign_in')
+def image(request, pk):
+    image = models.Image.objects.select_related('user', 'category').get(pk=pk)
+    image.views += 1
+    image.save()
+
+    context = {'image': image}
+    return render(request, 'images/image.html', context)
+
+
 def sign_out(request):
     logout(request)
     return redirect(reverse('sign_in', ))

@@ -73,7 +73,7 @@
             <div id="regular-images">
 
                 {% for image in images %}
-                    <a href="">
+                    <a href="{% url 'image' image.pk %}">
                         <div class="image" id="most-viewed">
                             <img src="{{image.img.url}}" alt="">
                             <div class="stats">

@@ -72,6 +72,7 @@ div.image {
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
           box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
   overflow: hidden;
+  margin: 2rem auto auto auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,8 +91,8 @@ div.image {
 }
 
 div.image img {
-  width: 25rem;
-  height: 20rem;
+  max-width: 100%;
+  max-height: 100%;
   padding: 1rem;
 }
 
@@ -123,46 +124,16 @@ div.image button.delete-btn i {
   font-size: 1rem;
 }
 
-div#page-controls {
-  margin: 4rem;
-  font-size: 2rem;
+i.upvote-btn, i.downvote-btn {
+  color: #dfdfdf;
 }
 
-div#page-controls i {
+i.upvote-btn:hover, i.downvote-btn:hover {
+  color: #b1b1b1;
+}
+
+i.upvote-btn.voted, i.downvote-btn.voted {
   color: #0a094e;
-}
-
-div#delete-panel {
-  width: 30rem;
-  background: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
-          box-shadow: rgba(0, 0, 0, 0.3) 1rem 1rem;
-  position: fixed;
-  top: -100%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  z-index: 2;
-}
-
-div#delete-panel h3 {
-  padding: 1rem;
-  background: #82a3ff;
-}
-
-div#delete-panel p {
-  color: #0a094e;
-  padding: 1rem;
-}
-
-div#delete-panel button {
-  margin: 0 0 2rem 1rem;
-}
-
-div#delete-panel.active {
-  top: 10%;
 }
 
 @-webkit-keyframes gradient {
@@ -188,4 +159,4 @@ div#delete-panel.active {
     background-position: 0% 50%;
   }
 }
-/*# sourceMappingURL=my_images.css.map */
+/*# sourceMappingURL=image.css.map */
