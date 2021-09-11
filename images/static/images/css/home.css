@@ -115,20 +115,21 @@ div.image div.stats p {
   margin: 0;
 }
 
-div.image div.stats i, div.image div.stats span {
-  font-size: 2rem;
-}
-
-div.image div.stats i.upvote-btn, div.image div.stats i.downvote-btn {
-  color: #dfdfdf;
-}
-
-div.image div.stats i.upvote-btn:hover, div.image div.stats i.downvote-btn:hover {
-  color: #b1b1b1;
-}
-
-div.image div.stats i.upvote-btn.voted, div.image div.stats i.downvote-btn.voted {
-  color: #0a094e;
+div.image div.stats div.voting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #a5a5a5;
 }
 
 div#page-controls {

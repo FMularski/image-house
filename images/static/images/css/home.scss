@@ -84,20 +84,12 @@ div.image {
             margin: 0;
         }
 
-        i, span {
-            font-size: 2rem;
-        }
-
-        i.upvote-btn, i.downvote-btn {
-            color: rgb(223, 223, 223);
-            
-            &:hover {
-                color: rgb(177, 177, 177);
-            }
-
-            &.voted { 
-                color:rgb(10, 9, 78);
-            }
+        div.voting {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(165, 165, 165);
         }
     }
 }
