@@ -58,7 +58,12 @@ def home(request):
 def my_images(request):
     my_images = models.Image.objects.select_related('user', 'category').filter(user=request.user)
     
-    context = {'my_images': my_images}
+    if request.GET.get('category'):
+        my_images = my_images.filter(category__name=request.GET.get('category'))
+
+    categories = models.Category.objects.all()
+    
+    context = {'my_images': my_images, 'categories': categories}
     return render(request, 'images/my_images.html', context)
 
 
