@@ -79,6 +79,14 @@ def vote(request, pk, vote):
     return redirect(reverse('image', kwargs={'pk': pk}))
 
 
+@login_required(login_url='sign_in')
+def add_image(request):
+    form = forms.ImageForm()
+
+    context = {'form': form}
+    return render(request, 'images/add.html', context)
+
+
 def sign_out(request):
     logout(request)
     return redirect(reverse('sign_in', ))

@@ -1,0 +1,63 @@
+body {
+  background: linear-gradient(45deg, #82a3ff, #ebebeb, #82a3ff, #ebebeb);
+  -webkit-animation: gradient 10s ease infinite;
+          animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+  color: white;
+  height: 100vh;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+form {
+  width: 25rem;
+  margin: 4rem;
+}
+
+form input[type='submit'] {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+img {
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
+  width: 40%;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*# sourceMappingURL=add.css.map */

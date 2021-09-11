@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static '/images/css/add.css' %}">
+{% endblock %}
+
+{% block title %} Image House | My images {% endblock %}
+
+{% block main %}
+    <main>
+        {% include 'nav.html' %}
+        
+        <form action="" method="POST">
+            <h2>Add Image</h2>
+            <br>
+            {% csrf_token %}
+            {{form.img}} <br><br>
+            {{form.title.label}}
+            {{form.title}} <br>
+            {{form.category.label}}
+            {{form.category}} <br> <br>
+
+            <input type="submit" value="Add" class="btn btn-light">
+        </form>
+    </main>
+
+    <img src="{% static '/images/img/add-img.svg' %}" alt="">
+{% endblock %}
+
+{% block script %}
+    <script src="{% static '/images/js/delete_img.js' %}"></script>
+{% endblock %}

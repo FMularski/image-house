@@ -28,3 +28,14 @@ class SignInForm(AuthenticationForm):
         widget=forms.TextInput(attrs={'class': 'form-control hover-scale'}))
     password = forms.CharField(max_length=255, 
         widget=forms.PasswordInput(attrs={'class': 'form-control hover-scale'}))
+
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = models.Image
+        fields = 'img', 'title', 'category'
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'})
+        }
