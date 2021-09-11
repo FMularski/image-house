@@ -83,10 +83,6 @@ div.image {
         p {
             margin: 0;
         }
-
-        i, span {
-            font-size: 2rem;
-        }
     }
 
     button.delete-btn {
@@ -94,6 +90,14 @@ div.image {
             font-size: 1rem;
         }
     }
+}
+
+div.voting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(165, 165, 165);
 }
 
 div#page-controls {
