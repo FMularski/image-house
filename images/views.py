@@ -83,6 +83,17 @@ def vote(request, pk, vote):
 def add_image(request):
     form = forms.ImageForm()
 
+    if request.method == 'POST':
+        print(request.POST)
+        form = forms.ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = request.user
+            image.save()
+
+            messages.success(request, 'Image has been added.')
+            return redirect(reverse('my_images', ))
+
     context = {'form': form}
     return render(request, 'images/add.html', context)
 
