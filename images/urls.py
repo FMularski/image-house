@@ -16,4 +16,5 @@ urlpatterns = [
     path('my-images/', views.my_images, name='my_images'),
     path('delete/<int:pk>/', views.delete_img, name='delete_img'),
     path('image/<int:pk>/', views.image, name='image'),
+    path('vote/<int:pk>/<int:vote>/', views.vote, name='vote'),
 ]

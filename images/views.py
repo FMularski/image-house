@@ -70,6 +70,15 @@ def image(request, pk):
     return render(request, 'images/image.html', context)
 
 
+@login_required(login_url='sign_in')
+def vote(request, pk, vote):
+    image = models.Image.objects.get(pk=pk)
+    image.votes += vote if vote else -1
+    image.save()
+    
+    return redirect(reverse('image', kwargs={'pk': pk}))
+
+
 def sign_out(request):
     logout(request)
     return redirect(reverse('sign_in', ))
