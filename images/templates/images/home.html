@@ -100,9 +100,19 @@
             </div>
             
             <div id="page-controls">
-                <a href=""><i class="fas fa-chevron-left"></i></a> 1 <a href=""><i class="fas fa-chevron-right"></i></a>
+                {% if images.has_previous %}
+                    <i class="fas fa-chevron-left hover-scale" page-num="{{images.previous_page_number}}" id="prev-page-btn"></i>
+                {% endif %}
+                <span id="pages-numeration">{{images.number}} of {{images.paginator.num_pages}}</span>
+                {% if images.has_next %}
+                    <i class="fas fa-chevron-right hover-scale" page-num="{{images.next_page_number}}" id="next-page-btn"></i>
+                {% endif %}
             </div>
             
         </div>
     </main>
 {% endblock %}
+
+{% block script %}
+    <script src="{% static '/images/js/pages.js' %}"></script>
+{% endblock %} 

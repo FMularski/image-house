@@ -2,14 +2,18 @@ from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
-from django.http import JsonResponse
+from django.core.paginator import Paginator, EmptyPage
 from . import forms, models
 
 
-def filter_order(request, images):
+def filt3r(request, images):
     if request.GET.get('category'):
         images = images.filter(category__name=request.GET.get('category'))
 
+    return images
+
+
+def sort(request, images):
     if request.GET.get('sort-date') == 'asc':
         images = images.order_by('created_at')
     elif request.GET.get('sort-date') == 'desc':
@@ -26,6 +30,17 @@ def filter_order(request, images):
         images = images.order_by('-votes')
 
     return images
+
+
+def paginate(request, images, images_per_page):
+    paginator = Paginator(images, images_per_page)
+
+    try:
+        page = paginator.page(request.GET.get('page', 1))
+    except EmptyPage:
+        page = paginator.page(1)
+
+    return page
     
 
 
@@ -67,7 +82,10 @@ def home(request):
     most_recent = images.order_by('created_at').first()
 
 
-    images = filter_order(request, images)
+    images = filt3r(request, images)
+    images = sort(request, images)
+    images = paginate(request, images, images_per_page=9)
+
 
     categories = models.Category.objects.all()
 
@@ -80,11 +98,14 @@ def home(request):
 @login_required(login_url='sign_in')
 def my_images(request):
     my_images = models.Image.objects.select_related('user', 'category').filter(user=request.user)
-    my_images = filter_order(request, my_images)
+
+    my_images = filt3r(request, my_images)
+    my_images = sort(request, my_images)
+    my_images = paginate(request, my_images, images_per_page=9)
 
     categories = models.Category.objects.all()
     
-    context = {'my_images': my_images, 'categories': categories}
+    context = {'images': my_images, 'categories': categories}
     return render(request, 'images/my_images.html', context)
 
 

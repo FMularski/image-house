@@ -89,6 +89,15 @@ div#dark.active {
   pointer-events: all;
 }
 
+div#page-controls {
+  margin: 4rem;
+  font-size: 2rem;
+}
+
+div#page-controls span#pages-numeration {
+  color: #0a094e;
+}
+
 @-webkit-keyframes flash-msg-animation {
   from {
     top: -100%;

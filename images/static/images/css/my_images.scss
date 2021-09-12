@@ -65,7 +65,7 @@ div.image {
     background: white;
 
     img {
-        width: 25rem;
+        width: 20rem;
         height: 20rem;
 
         padding: 1rem;
@@ -99,17 +99,6 @@ div.voting {
     align-items: center;
     color: rgb(165, 165, 165);
 }
-
-div#page-controls {
-    margin: 4rem;
-
-    font-size: 2rem;
-
-    i {
-        color:rgb(10, 9, 78);
-    }
-}
-
 div#delete-panel {
 
     width: 30rem;

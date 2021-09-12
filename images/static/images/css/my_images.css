@@ -90,7 +90,7 @@ div.image {
 }
 
 div.image img {
-  width: 25rem;
+  width: 20rem;
   height: 20rem;
   padding: 1rem;
 }
@@ -134,15 +134,6 @@ div.voting {
       -ms-flex-align: center;
           align-items: center;
   color: #a5a5a5;
-}
-
-div#page-controls {
-  margin: 4rem;
-  font-size: 2rem;
-}
-
-div#page-controls i {
-  color: #0a094e;
 }
 
 div#delete-panel {

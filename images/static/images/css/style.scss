@@ -76,6 +76,17 @@ div#dark {
     }
 }
 
+div#page-controls {
+    margin: 4rem;
+    font-size: 2rem;
+
+    span#pages-numeration {
+        color:rgb(10, 9, 78);
+    }
+}
+
+
+
 @keyframes flash-msg-animation {
     from {
         top: -100%;
