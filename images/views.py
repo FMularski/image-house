@@ -141,7 +141,6 @@ def add_image(request):
     form = forms.ImageForm()
 
     if request.method == 'POST':
-        print(request.POST)
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
