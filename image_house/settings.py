@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://image-house.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'image-house.herokuapp.com']
 
 
 # Application definition
