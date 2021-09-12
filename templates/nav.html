@@ -61,29 +61,29 @@
 
     <h4>Sort</h4>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-date-asc">
+        <input class="form-check-input" type="checkbox" value="asc" name="sort-date" id="sort-date-asc">
         <label class="form-check-label">date <i class="fas fa-arrow-up"></i></label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-date-des">
+        <input class="form-check-input" type="checkbox" value="desc" name="sort-date" id="sort-date-des">
         <label class="form-check-label">date <i class="fas fa-arrow-down"></i></label>
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-views-asc">
+        <input class="form-check-input" type="checkbox" value="asc" name="sort-views" id="sort-views-asc">
         <label class="form-check-label">views <i class="fas fa-arrow-up"></i></label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-views-des">
+        <input class="form-check-input" type="checkbox" value="desc" name="sort-views" id="sort-views-des">
         <label class="form-check-label">views <i class="fas fa-arrow-down"></i></label>
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-votes-asc">
+        <input class="form-check-input" type="checkbox" value="asc" name="sort-votes" id="sort-votes-asc">
         <label class="form-check-label">votes <i class="fas fa-arrow-up"></i></label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="sort" id="sort-votes-des">
+        <input class="form-check-input" type="checkbox" value="desc" name="sort-votes" id="sort-votes-des">
         <label class="form-check-label">votes <i class="fas fa-arrow-down"></i></label>
     </div>
 
@@ -115,10 +115,44 @@
             sortViewsAscCb, sortViewsDesCb, 
             sortVotesAscCb, sortVotesDesCb
         ]
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const sortDateQuery = urlParams.get('sort-date');
+        const sortViewsQuery = urlParams.get('sort-views');
+        const sortVotesQuery = urlParams.get('sort-votes');
+
+        if (sortDateQuery == 'asc') sortDateAscCb.checked = true;
+        if (sortDateQuery == 'desc') sortDateDesCb.checked = true;
+
+        if (sortViewsQuery == 'asc') sortViewsAscCb.checked = true;
+        if (sortViewsQuery == 'desc') sortViewsDesCb.checked = true;
+
+        if (sortVotesQuery == 'asc') sortVotesAscCb.checked = true;
+        if (sortVotesQuery == 'desc') sortVotesDesCb.checked = true;
+
         
         checkboxes.forEach(function(cb) {
             cb.addEventListener('click', function() {
                 cb.oppositeCb.checked = false;
+
+                if (!cb.checked && !cb.oppositeCb.checked) {
+                    console.log(cb);
+                    console.log(cb.checked);
+
+                    console.log(cb.oppositeCb);
+                    console.log(cb.oppositeCb.checked);
+
+                    let reduced = urlParams.toString().replace(`${cb.getAttribute('name')}=asc`, '');
+                    reduced = reduced.replace(`${cb.getAttribute('name')}=desc`, '');
+                    window.history.replaceState({}, '', `${location.pathname}?${reduced.toString()}`);
+                }
+                else {
+                    urlParams.set(cb.getAttribute('name'), cb.value); 
+                    window.history.replaceState({}, '', `${location.pathname}?${urlParams.toString()}`);
+                }
+
+                location.reload();
             })
         })
 

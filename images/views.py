@@ -6,6 +6,29 @@ from django.http import JsonResponse
 from . import forms, models
 
 
+def filter_order(request, images):
+    if request.GET.get('category'):
+        images = images.filter(category__name=request.GET.get('category'))
+
+    if request.GET.get('sort-date') == 'asc':
+        images = images.order_by('created_at')
+    elif request.GET.get('sort-date') == 'desc':
+        images = images.order_by('-created_at')
+
+    if request.GET.get('sort-views') == 'asc':
+        images = images.order_by('views')
+    elif request.GET.get('sort-views') == 'desc':
+        images = images.order_by('-views')
+
+    if request.GET.get('sort-votes') == 'asc':
+        images = images.order_by('votes')
+    elif request.GET.get('sort-votes') == 'desc':
+        images = images.order_by('-votes')
+
+    return images
+    
+
+
 def sign_in(request):
     form = forms.SignInForm()
 
@@ -43,8 +66,8 @@ def home(request):
     most_voted = images.order_by('-votes').first()
     most_recent = images.order_by('created_at').first()
 
-    if request.GET.get('category'):
-        images = images.filter(category__name=request.GET.get('category'))
+
+    images = filter_order(request, images)
 
     categories = models.Category.objects.all()
 
@@ -57,9 +80,7 @@ def home(request):
 @login_required(login_url='sign_in')
 def my_images(request):
     my_images = models.Image.objects.select_related('user', 'category').filter(user=request.user)
-    
-    if request.GET.get('category'):
-        my_images = my_images.filter(category__name=request.GET.get('category'))
+    my_images = filter_order(request, my_images)
 
     categories = models.Category.objects.all()
     
