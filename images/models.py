@@ -14,7 +14,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    img = models.ImageField()
+    img = models.ImageField(upload_to='uploads')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=30)
