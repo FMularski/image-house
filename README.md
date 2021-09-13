@@ -25,7 +25,7 @@ Image House in a web application containing uploaded images. These can be viewed
 
 * Browsing all images with possible filtering, sorting and paginating
 
-![home](https://user-images.githubusercontent.com/26598200/133136784-452abc63-8ff9-4b82-883e-bbf5f3ecd073.PNG)
+![home](https://user-images.githubusercontent.com/26598200/133140363-9982d026-bd4b-4775-83fa-2bd2c01ad1e0.gif)
 
 * Uploading images
 
@@ -37,7 +37,7 @@ Image House in a web application containing uploaded images. These can be viewed
 
 * Viewing and voting
 
-![iamge](https://user-images.githubusercontent.com/26598200/133137211-6d4a8130-2646-452c-ab88-e0420c2ae340.PNG)
+![vote](https://user-images.githubusercontent.com/26598200/133138216-7a67b322-1777-4498-8b8d-2d7d7f7e304d.gif)
 
 ## Download
 ```bash
